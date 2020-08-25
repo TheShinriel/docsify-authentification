@@ -86,15 +86,15 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/authentification.js":
+/***/ "./src/authentication.js":
 /*!*********************************!*\
-  !*** ./src/authentification.js ***!
+  !*** ./src/authentication.js ***!
   \*********************************/
 /*! exports provided: getFile, install */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFile\", function() { return getFile; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"install\", function() { return install; });\nfunction getFile(target, headers) {\n  return Promise\n    .resolve()\n    .then(() => fetch(target,\n      {\n        method: \"GET\",\n        headers,\n      }\n    ))\n    .then((response) => {\n      if (!response.ok) {\n        throw new Error('HTTP error, status = ' + response.status);\n      }\n      return response.text();\n    })\n}\n\nfunction install(hook, vm) {\n  const config = Object.assign({}, {\n    tag: 'withAuth',\n    headers: {} // X-API-Key, Authorization, ... ?\n\t}, vm.config.authentification);\n\n  hook.beforeEach(function (content, next) {\n    const reg = new RegExp(`\\\\[${config.tag}\\\\]\\\\(([^)]+)\\\\)`, 'i');\n    const result = content.match(reg);\n\n    console.log(\"content\", content);\n\n    if (result && result[1]) {\n      const targetFile = result[1];\n      getFile(targetFile, config.headers)\n        .then((data) => next(content.replace(reg, `\\n ${data} \\n`)))\n        .catch((err) => console.error(err));\n    } else {\n      next(content);\n    }\n  });\n}\n\n\n//# sourceURL=webpack:///./src/authentification.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getFile\", function() { return getFile; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"install\", function() { return install; });\nfunction getFile(target, headers) {\n  return Promise\n    .resolve()\n    .then(() => fetch(target,\n      {\n        method: \"GET\",\n        headers,\n      }\n    ))\n    .then((response) => {\n      if (!response.ok) {\n        throw new Error('HTTP error, status = ' + response.status);\n      }\n      return response.text();\n    })\n}\n\nfunction install(hook, vm) {\n  const config = Object.assign({}, {\n    tag: 'withAuth',\n    headers: {} // X-API-Key, Authorization, ... ?\n\t}, vm.config.authentication);\n\n  hook.beforeEach(function (content, next) {\n    const reg = new RegExp(`\\\\[${config.tag}\\\\]\\\\(([^)]+)\\\\)`, 'i');\n    const result = content.match(reg);\n\n    console.log(\"content\", content);\n\n    if (result && result[1]) {\n      const targetFile = result[1];\n      getFile(targetFile, config.headers)\n        .then((data) => next(content.replace(reg, `\\n ${data} \\n`)))\n        .catch((err) => console.error(err));\n    } else {\n      next(content);\n    }\n  });\n}\n\n\n//# sourceURL=webpack:///./src/authentication.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _authentification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authentification */ \"./src/authentification.js\");\n\n\nif (!window.$docsify) {\n  window.$docsify = {}\n}\n\nwindow.$docsify.plugins = (window.$docsify.plugins || []).concat(_authentification__WEBPACK_IMPORTED_MODULE_0__[\"install\"])\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _authentication__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authentication */ \"./src/authentication.js\");\n\n\nif (!window.$docsify) {\n  window.$docsify = {}\n}\n\nwindow.$docsify.plugins = (window.$docsify.plugins || []).concat(_authentication__WEBPACK_IMPORTED_MODULE_0__[\"install\"])\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

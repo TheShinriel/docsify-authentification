@@ -1,4 +1,4 @@
-import { install } from './authentification'
+import { install } from './authentication'
 
 if (!window.$docsify) {
   window.$docsify = {}

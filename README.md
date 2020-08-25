@@ -1,12 +1,12 @@
-# docsify-authentification
+# docsify-authentication
 
 ## Install
-1. Configure docsify-authentification (optional):
+1. Configure docsify-authentication (optional):
 
     ```html
     <script>
     window.$docsify = {
-      authentification: {
+      authentication: {
         tag: 'withAuth',
       },
       headers: {
@@ -20,12 +20,12 @@
 2. Insert script into docsify document:
 
     ```html
-    <script src="//unpkg.com/docsify-authentification/dist/docsify-authentification.min.js"></script>
+    <script src="//unpkg.com/docsify-authentication/dist/docsify-authentication.min.js"></script>
     ```
 
 
 ## Usage
-Write your authentification code like this:
+Write your authentication code like this:
 
 ```markdown
 [withAuth](https://raw.githubusercontent.com/docsifyjs/docsify/develop/README.md)
@@ -40,7 +40,7 @@ However, you can change this options as you like:
 
 ```javascript
 window.$docsify = {
-  authentification: {
+  authentication: {
     tag: 'customTag',
   },
 }
@@ -58,7 +58,7 @@ You can specify exactly what headers you want like:
 
 ```javascript
 window.$docsify = {
-  authentification: {
+  authentication: {
       headers: {
         "X-API-Key": "abcdef12345",
         "Authorization": "bearer HelloWorldForTest",
@@ -75,7 +75,7 @@ Will add these headers for each call to the page in parameter
 
 ## Example
 - [index.html](example/index.html)
-- [README.md](https://raw.githubusercontent.com/TheShinriel/docsify-authentification/master/README.md)
+- [README.md](https://raw.githubusercontent.com/TheShinriel/docsify-authentication/master/README.md)
 
 # License
 This project is licensed under the [MIT license](LICENSE).    

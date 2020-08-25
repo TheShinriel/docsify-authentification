@@ -1,17 +1,17 @@
 {
-  "name": "docsify-authentification",
+  "name": "docsify-authentication",
   "version": "0.0.1",
-  "description": "add authentification for some calls of docsify",
+  "description": "add authentication for some calls of docsify",
   "main": "src",
   "scripts": {
     "build": "npm run build:dev && npm run build:prod",
-    "build:dev": "webpack src/index.js -o dist/docsify-authentification.js --mode=development",
-    "build:prod": "webpack src/index.js -o dist/docsify-authentification.min.js --mode=production",
-    "build:example": "webpack src/index.js -o example/docsify-authentification.js --mode=development"
+    "build:dev": "webpack src/index.js -o dist/docsify-authentication.js --mode=development",
+    "build:prod": "webpack src/index.js -o dist/docsify-authentication.min.js --mode=production",
+    "build:example": "webpack src/index.js -o example/docsify-authentication.js --mode=development"
   },
   "keywords": [
     "docsify",
-    "authentification",
+    "authentication",
     "auth"
   ],
   "files": [

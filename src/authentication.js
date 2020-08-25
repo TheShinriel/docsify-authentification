@@ -19,7 +19,7 @@ export function install(hook, vm) {
   const config = Object.assign({}, {
     tag: 'withAuth',
     headers: {} // X-API-Key, Authorization, ... ?
-	}, vm.config.authentification);
+	}, vm.config.authentication);
 
   hook.beforeEach(function (content, next) {
     const reg = new RegExp(`\\[${config.tag}\\]\\(([^)]+)\\)`, 'i');
